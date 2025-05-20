@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="profilePicutres\" />
+    <Folder Include="profilePictures\" />
   </ItemGroup>
 
 </Project>

@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace StoreBack.Controllers
 {
@@ -29,55 +30,82 @@ namespace StoreBack.Controllers
 
         public class RegisterModel
         {
+            [Required]
             public string UserName { get; set; }
+            [Required]
             public string Password { get; set; }
-            public IFormFile? ProfilePicture { get; set; } // Зробимо необов’язковим
+            [Required]
+            public string PhoneNumber { get; set; }
+            [Required]
+            public string Email { get; set; }
+            public string? ProfilePictureBase64 { get; set; }
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] RegisterModel model)
         {
-            Console.WriteLine($"Received register request: UserName={model.UserName}, Password={model.Password}, ProfilePicture={model.ProfilePicture?.FileName ?? "null"}");
+            Console.WriteLine($"Received register request: UserName={model.UserName ?? "null"}, Password={model.Password ?? "null"}, PhoneNumber={model.PhoneNumber ?? "null"}, Email={model.Email ?? "null"}, ProfilePictureBase64={(model.ProfilePictureBase64 != null ? $"Length: {model.ProfilePictureBase64.Length}" : "null")}");
 
-            if (string.IsNullOrEmpty(model.UserName) || string.IsNullOrEmpty(model.Password))
+            if (!ModelState.IsValid)
             {
-                Console.WriteLine("Username or password is missing");
-                return BadRequest(new { error = "Username and password are required" });
+                Console.WriteLine("Model state invalid: " + string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+                return BadRequest(new { error = "Invalid model state", details = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+            }
+
+            if (string.IsNullOrEmpty(model.UserName) || string.IsNullOrEmpty(model.Password) || string.IsNullOrEmpty(model.PhoneNumber) || string.IsNullOrEmpty(model.Email))
+            {
+                Console.WriteLine("Username, password, phone number, or email is missing");
+                return BadRequest(new { error = "Username, password, phone number, and email are required" });
             }
 
             var user = new ApplicationUser
             {
-                UserName = model.UserName,
-                Email = null,
-                PhoneNumber = null
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                UserName = model.UserName // Встановлюємо UserName для ApplicationUser
             };
 
-            if (model.ProfilePicture != null)
+            // Встановлюємо UserName і NormalizedUserName для базового класу IdentityUser
+            ((IdentityUser)user).UserName = model.UserName;
+            user.NormalizedUserName = model.UserName.ToUpper();
+
+            if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
-                var profilePicturesPath = Path.Combine(_environment.ContentRootPath, "profilePictures");
-                if (!Directory.Exists(profilePicturesPath))
-                    Directory.CreateDirectory(profilePicturesPath);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.ProfilePicture.FileName);
-                var filePath = Path.Combine(profilePicturesPath, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                try
                 {
-                    await model.ProfilePicture.CopyToAsync(stream);
-                }
+                    var profilePicturesPath = Path.Combine(_environment.ContentRootPath, "profilePictures");
+                    if (!Directory.Exists(profilePicturesPath))
+                        Directory.CreateDirectory(profilePicturesPath);
 
-                user.ProfilePicture = Path.Combine("profilePictures", fileName);
-                Console.WriteLine($"Profile picture saved to: {user.ProfilePicture}");
+                    var fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var filePath = Path.Combine(profilePicturesPath, fileName);
+
+                    var bytes = Convert.FromBase64String(model.ProfilePictureBase64);
+                    await System.IO.File.WriteAllBytesAsync(filePath, bytes);
+
+                    user.ProfilePicture = Path.Combine("profilePictures", fileName);
+                    Console.WriteLine($"Profile picture saved to: {user.ProfilePicture}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error saving profile picture: {ex.Message}");
+                    return BadRequest(new { error = "Failed to save profile picture", details = ex.Message });
+                }
             }
             else
             {
                 Console.WriteLine("No profile picture provided");
-                user.ProfilePicture = null;
+                return BadRequest(new { error = "Profile picture is required" });
             }
 
+            Console.WriteLine($"Creating user with UserName={user.UserName}, BaseIdentityUserName={((IdentityUser)user).UserName}, NormalizedUserName={user.NormalizedUserName}, PhoneNumber={user.PhoneNumber}, Email={user.Email}");
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                // Дебаг: Перевіряємо після створення
+                var createdUser = await _userManager.FindByNameAsync(model.UserName);
+                Console.WriteLine($"User created. UserName={createdUser?.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)createdUser)?.UserName ?? "null"}, NormalizedUserName={createdUser?.NormalizedUserName ?? "null"}, PasswordHash={createdUser?.PasswordHash ?? "null"}");
+
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 Console.WriteLine("User registered successfully");
                 return Ok(new { message = "User registered successfully" });
@@ -89,50 +117,82 @@ namespace StoreBack.Controllers
 
         public class LoginModel
         {
+            [Required]
             public string UserName { get; set; }
+            [Required]
             public string Password { get; set; }
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginModel model)
         {
-            Console.WriteLine($"Login attempt: UserName={model.UserName}, Password=***");
-            if (string.IsNullOrEmpty(model.UserName) || string.IsNullOrEmpty(model.Password))
+            try
             {
-                Console.WriteLine("Username or password is missing");
-                return BadRequest(new { error = "Username and password are required" });
-            }
+                Console.WriteLine($"Login attempt: UserName={model.UserName ?? "null"}, Password={(string.IsNullOrEmpty(model.Password) ? "null" : "***")}");
+                if (!ModelState.IsValid)
+                {
+                    Console.WriteLine("Model state invalid: " + string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+                    return BadRequest(new { error = "Invalid model state", details = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+                }
 
-            var user = await _userManager.FindByNameAsync(model.UserName);
-            if (user == null)
+                if (string.IsNullOrEmpty(model.UserName) || string.IsNullOrEmpty(model.Password))
+                {
+                    Console.WriteLine("Username or password is missing");
+                    return BadRequest(new { error = "Username and password are required" });
+                }
+
+                // Переконаємося, що NormalizedUserName встановлено
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                if (user == null)
+                {
+                    Console.WriteLine("User not found");
+                    return Unauthorized(new { error = "User not found" });
+                }
+
+                // Перевіряємо і виправляємо NormalizedUserName, якщо воно null
+                if (string.IsNullOrEmpty(user.NormalizedUserName))
+                {
+                    user.NormalizedUserName = user.UserName.ToUpper();
+                    var updateResult = await _userManager.UpdateAsync(user);
+                    if (!updateResult.Succeeded)
+                    {
+                        Console.WriteLine("Failed to update NormalizedUserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+                        return StatusCode(500, new { error = "Failed to update user data" });
+                    }
+                    Console.WriteLine("NormalizedUserName was null, updated to: " + user.NormalizedUserName);
+                }
+
+                Console.WriteLine($"User found: UserName={user.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)user).UserName ?? "null"}, NormalizedUserName={user.NormalizedUserName ?? "null"}, PasswordHash={user.PasswordHash ?? "null"}");
+                var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
+                if (result.Succeeded)
+                {
+                    var token = GenerateJwtToken(user);
+                    Console.WriteLine("Login successful");
+                    return Ok(new { token });
+                }
+
+                Console.WriteLine("Login failed: Invalid credentials");
+                return Unauthorized(new { error = "Invalid username or password" });
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine("User not found");
-                return Unauthorized(new { error = "User not found" });
+                Console.WriteLine($"Login error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                return StatusCode(500, new { error = "Internal server error", details = ex.Message });
             }
-
-            var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
-            if (result.Succeeded)
-            {
-                var token = GenerateJwtToken(user);
-                Console.WriteLine("Login successful");
-                return Ok(new { token });
-            }
-
-            Console.WriteLine("Login failed: Invalid credentials");
-            return Unauthorized(new { error = "Invalid username or password" });
         }
 
         public class EditProfileModel
         {
             public string PhoneNumber { get; set; }
-            public IFormFile? ProfilePicture { get; set; } // Зробимо необов’язковим
+            public string Email { get; set; }
+            public string? ProfilePictureBase64 { get; set; }
         }
 
         [Authorize]
         [HttpPut("profile")]
         public async Task<IActionResult> EditProfile([FromForm] EditProfileModel model)
         {
-            Console.WriteLine($"Edit profile request: PhoneNumber={model.PhoneNumber}, ProfilePicture={model.ProfilePicture?.FileName ?? "null"}");
+            Console.WriteLine($"Edit profile request: PhoneNumber={model.PhoneNumber}, Email={model.Email}, ProfilePictureBase64={(model.ProfilePictureBase64 != null ? $"Length: {model.ProfilePictureBase64.Length}" : "null")}");
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -141,23 +201,34 @@ namespace StoreBack.Controllers
             }
 
             user.PhoneNumber = model.PhoneNumber;
+            user.Email = model.Email;
 
-            if (model.ProfilePicture != null)
+            if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
-                var profilePicturesPath = Path.Combine(_environment.ContentRootPath, "profilePictures");
-                if (!Directory.Exists(profilePicturesPath))
-                    Directory.CreateDirectory(profilePicturesPath);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.ProfilePicture.FileName);
-                var filePath = Path.Combine(profilePicturesPath, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                try
                 {
-                    await model.ProfilePicture.CopyToAsync(stream);
-                }
+                    var profilePicturesPath = Path.Combine(_environment.ContentRootPath, "profilePictures");
+                    if (!Directory.Exists(profilePicturesPath))
+                        Directory.CreateDirectory(profilePicturesPath);
 
-                user.ProfilePicture = Path.Combine("profilePictures", fileName);
-                Console.WriteLine($"Profile picture updated to: {user.ProfilePicture}");
+                    var fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var filePath = Path.Combine(profilePicturesPath, fileName);
+
+                    var bytes = Convert.FromBase64String(model.ProfilePictureBase64);
+                    await System.IO.File.WriteAllBytesAsync(filePath, bytes);
+
+                    user.ProfilePicture = Path.Combine("profilePictures", fileName);
+                    Console.WriteLine($"Profile picture updated to: {user.ProfilePicture}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error updating profile picture: {ex.Message}");
+                    return BadRequest(new { error = "Failed to update profile picture", details = ex.Message });
+                }
+            }
+            else if (string.IsNullOrEmpty(user.ProfilePicture))
+            {
+                return BadRequest(new { error = "Profile picture is required" });
             }
 
             var result = await _userManager.UpdateAsync(user);
@@ -182,7 +253,7 @@ namespace StoreBack.Controllers
         }
 
         [Authorize]
-        [HttpDelete("delete")]
+        [HttpPost("delete")]
         public async Task<IActionResult> DeleteAccount()
         {
             Console.WriteLine("Delete account request received");

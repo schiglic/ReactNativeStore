@@ -191,6 +191,12 @@
           "content": {
             "multipart/form-data": {
               "schema": {
+                "required": [
+                  "Email",
+                  "Password",
+                  "PhoneNumber",
+                  "UserName"
+                ],
                 "type": "object",
                 "properties": {
                   "UserName": {
@@ -199,9 +205,14 @@
                   "Password": {
                     "type": "string"
                   },
-                  "ProfilePicture": {
-                    "type": "string",
-                    "format": "binary"
+                  "PhoneNumber": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "ProfilePictureBase64": {
+                    "type": "string"
                   }
                 }
               },
@@ -212,7 +223,13 @@
                 "Password": {
                   "style": "form"
                 },
-                "ProfilePicture": {
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "ProfilePictureBase64": {
                   "style": "form"
                 }
               }
@@ -235,6 +252,10 @@
           "content": {
             "multipart/form-data": {
               "schema": {
+                "required": [
+                  "Password",
+                  "UserName"
+                ],
                 "type": "object",
                 "properties": {
                   "UserName": {
@@ -277,9 +298,11 @@
                   "PhoneNumber": {
                     "type": "string"
                   },
-                  "ProfilePicture": {
-                    "type": "string",
-                    "format": "binary"
+                  "Email": {
+                    "type": "string"
+                  },
+                  "ProfilePictureBase64": {
+                    "type": "string"
                   }
                 }
               },
@@ -287,7 +310,10 @@
                 "PhoneNumber": {
                   "style": "form"
                 },
-                "ProfilePicture": {
+                "Email": {
+                  "style": "form"
+                },
+                "ProfilePictureBase64": {
                   "style": "form"
                 }
               }
@@ -314,7 +340,7 @@
       }
     },
     "/api/User/delete": {
-      "delete": {
+      "post": {
         "tags": [
           "User"
         ],

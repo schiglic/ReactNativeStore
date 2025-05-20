@@ -2,36 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, Image, FlatList, StyleSheet, Alert, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ImagePicker from 'expo-image-picker';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 // Налаштування Axios для бекенду
 const api = axios.create({
-  baseURL: 'http://192.168.1.2:5259/api', // IP ноутбука
+  baseURL: 'http://192.168.1.2:5259/api', // Переконайся, що IP правильний
   headers: { 'Content-Type': 'multipart/form-data' },
-  timeout: 10000, // Збільшуємо тайм-аут до 10 секунд
+  timeout: 15000,
 });
 
 // Дебаг-записи
 api.interceptors.request.use(
     request => {
-      console.log('Request:', request.method, request.url, request.data);
+      console.log('Request:', request.method, request.url, 'Data:', request.data);
       return request;
     },
     error => {
-      console.error('Request error:', error.message);
+      console.error('Request error:', (error as Error).message);
       return Promise.reject(error);
     }
 );
 
 api.interceptors.response.use(
     response => {
-      console.log('Response:', response.status, response.data);
+      console.log('Response:', response.status, 'Data:', response.data);
       return response;
     },
     error => {
-      console.error('Response error:', error.message);
-      if (error.code === 'ECONNABORTED') {
-        console.error('Timeout: Сервер не відповів протягом 10 секунд');
+      const axiosError = error as AxiosError;
+      console.error('Response error:', axiosError.message, 'Code:', axiosError.code);
+      if (axiosError.code === 'ECONNABORTED') {
+        console.error('Timeout: Сервер не відповів протягом 15 секунд');
+      } else if (axiosError.code === 'ERR_NETWORK') {
+        console.error('Network error details:', axiosError.config?.url);
       }
       return Promise.reject(error);
     }
@@ -63,7 +66,7 @@ const App: React.FC = () => {
           setPage('products');
         }
       } catch (error) {
-        console.error('Помилка перевірки токена:', error);
+        console.error('Помилка перевірки токена:', (error as Error).message);
       }
     };
     checkToken();
@@ -80,11 +83,13 @@ const App: React.FC = () => {
   const checkServer = async () => {
     try {
       console.log('Перевірка доступності сервера...');
-      await api.get('/ping');
-      console.log('Сервер доступний!');
+      const response = await api.get('/ping');
+      console.log('Сервер доступний! Відповідь:', response.data);
       return true;
     } catch (error) {
-      Alert.alert('Помилка мережі', 'Не вдалося підключитися до сервера. Перевір IP, порт або брандмауер.');
+      const axiosError = error as AxiosError;
+      console.error('Server check failed:', axiosError.message);
+      Alert.alert('Помилка мережі', `Не вдалося підключитися до сервера. Перевір IP, порт або брандмауер.\nДеталі: ${axiosError.message}`);
       return false;
     }
   };
@@ -103,21 +108,29 @@ const App: React.FC = () => {
         return;
       }
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images, // Використано зворотну сумісність для старої версії
         allowsEditing: true,
         base64: true,
-        quality: 0.3, // Зменшуємо якість для зменшення розміру
+        quality: 0.2,
       });
       if (!result.canceled) {
         const base64Data = result.assets[0].base64 || null;
+        if (base64Data && base64Data.length > 100000) {
+          Alert.alert('Помилка', 'Зображення занадто велике. Оберіть фото меншого розміру.');
+          return;
+        }
         setPhoto(base64Data);
-        console.log('Photo selected:', base64Data ? `Base64 data present, length: ${base64Data.length}` : 'No base64 data');
+        console.log('Photo selected:', base64Data ? `Base64 length: ${base64Data.length}` : 'No base64 data');
       }
     };
 
     const handleRegister = async () => {
-      if (!name || !password || !phone || !email || !photo) {
-        Alert.alert('Помилка', 'Заповніть усі поля, включаючи фото профілю.');
+      if (!name || !password || !phone || !email) {
+        Alert.alert('Помилка', 'Заповніть ім’я, пароль, телефон і email.');
+        return;
+      }
+      if (!photo) {
+        Alert.alert('Помилка', 'Оберіть фото профілю (обов’язково).');
         return;
       }
       const isServerUp = await checkServer();
@@ -125,31 +138,38 @@ const App: React.FC = () => {
 
       try {
         const formData = new FormData();
-        formData.append('userName', name);
-        formData.append('password', password);
-        const blob = await (await fetch(`data:image/jpeg;base64,${photo}`)).blob();
-        formData.append('profilePicture', blob, 'profile.jpg');
+        formData.append('UserName', name);
+        formData.append('Password', password);
+        formData.append('PhoneNumber', phone);
+        formData.append('Email', email);
+        formData.append('ProfilePictureBase64', photo);
 
         console.log('Sending FormData:', {
-          userName: name,
-          password: password,
-          profilePicture: `Blob size: ${blob.size} bytes`,
+          UserName: name,
+          Password: password,
+          PhoneNumber: phone,
+          Email: email,
+          ProfilePictureBase64: `Base64 length: ${photo.length}`,
         });
 
+        console.log('Final FormData prepared, sending to /user/register');
         const response = await api.post('/user/register', formData);
         const { message } = response.data;
         Alert.alert('Успіх', message);
 
-        const loginResponse = await api.post('/user/login', { userName: name, password }, {
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const loginFormData = new FormData();
+        loginFormData.append('UserName', name);
+        loginFormData.append('Password', password);
+        const loginResponse = await api.post('/user/login', loginFormData);
         const { token } = loginResponse.data;
         await AsyncStorage.setItem('jwt_token', token);
         setToken(token);
         setUser({ name });
         setPage('products');
-      } catch (error: any) {
-        Alert.alert('Помилка', error.message || 'Реєстрація не вдалася.');
+      } catch (error) {
+        const axiosError = error as AxiosError;
+        console.error('Registration error details:', axiosError);
+        Alert.alert('Помилка', axiosError.message || 'Реєстрація не вдалася.');
       }
     };
 
@@ -204,17 +224,26 @@ const App: React.FC = () => {
       if (!isServerUp) return;
 
       try {
-        const response = await api.post('/user/login', { userName: name, password }, {
-          headers: { 'Content-Type': 'application/json' },
+        const formData = new FormData();
+        formData.append('UserName', name);
+        formData.append('Password', password);
+
+        console.log('Sending Login FormData:', {
+          UserName: name,
+          Password: password,
         });
+
+        const response = await api.post('/user/login', formData);
         const { token } = response.data;
         await AsyncStorage.setItem('jwt_token', token);
         setToken(token);
         setUser({ name });
         setPage('products');
         Alert.alert('Успіх', 'Вхід успішний!');
-      } catch (error: any) {
-        Alert.alert('Помилка', error.message || 'Вхід не вдався.');
+      } catch (error) {
+        const axiosError = error as AxiosError;
+        console.error('Login error details:', axiosError);
+        Alert.alert('Помилка', axiosError.message || 'Вхід не вдався.');
       }
     };
 
@@ -253,6 +282,7 @@ const App: React.FC = () => {
           const response = await api.get('/product');
           setProducts(response.data);
         } catch (error) {
+          console.error('Помилка отримання продуктів:', (error as Error).message);
           Alert.alert('Помилка', 'Не вдалося отримати товари.');
         }
       };
@@ -266,15 +296,19 @@ const App: React.FC = () => {
         return;
       }
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images, // Використано зворотну сумісність
         allowsEditing: true,
         base64: true,
-        quality: 0.3, // Зменшуємо якість
+        quality: 0.2,
       });
       if (!result.canceled) {
         const base64Data = result.assets[0].base64 || null;
+        if (base64Data && base64Data.length > 100000) {
+          Alert.alert('Помилка', 'Зображення товару занадто велике. Оберіть фото меншого розміру.');
+          return;
+        }
         setProductImage(base64Data);
-        console.log('Product photo selected:', base64Data ? `Base64 data present, length: ${base64Data.length}` : 'No base64 data');
+        console.log('Product photo selected:', base64Data ? `Base64 length: ${base64Data.length}` : 'No base64 data');
       }
     };
 
@@ -292,13 +326,12 @@ const App: React.FC = () => {
         formData.append('description', description);
         formData.append('price', price);
         if (productImage) {
-          const blob = await (await fetch(`data:image/jpeg;base64,${productImage}`)).blob();
-          formData.append('image', blob, 'product.jpg');
+          formData.append('ImageBase64', productImage);
           console.log('Sending product FormData:', {
             name: productName,
             description: description,
             price: price,
-            image: `Blob size: ${blob.size} bytes`,
+            ImageBase64: `Base64 length: ${productImage.length}`,
           });
         }
         await api.post('/product', formData);
@@ -309,8 +342,10 @@ const App: React.FC = () => {
         setPrice('');
         setProductImage(null);
         Alert.alert('Успіх', 'Товар додано!');
-      } catch (error: any) {
-        Alert.alert('Помилка', error.message || 'Не вдалося додати товар.');
+      } catch (error) {
+        const axiosError = error as AxiosError;
+        console.error('Product add error details:', axiosError);
+        Alert.alert('Помилка', axiosError.message || 'Не вдалося додати товар.');
       }
     };
 
@@ -364,7 +399,7 @@ const App: React.FC = () => {
                   setUser(null);
                   setPage('login');
                 } catch (error) {
-                  console.error('Помилка виходу:', error);
+                  console.error('Logout error:', (error as Error).message);
                 }
               }}
           />

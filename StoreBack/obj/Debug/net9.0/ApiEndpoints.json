@@ -122,7 +122,7 @@
     "ContainingType": "StoreBack.Controllers.UserController",
     "Method": "DeleteAccount",
     "RelativePath": "api/User/delete",
-    "HttpMethod": "DELETE",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -173,8 +173,13 @@
         "IsRequired": false
       },
       {
-        "Name": "ProfilePicture",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfilePictureBase64",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -199,8 +204,18 @@
         "IsRequired": false
       },
       {
-        "Name": "ProfilePicture",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfilePictureBase64",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
