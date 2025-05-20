@@ -3,44 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Migrations\\20250519170935_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StoreBack\\Migrations\\20250519170935_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\storeback\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{09253389-44CC-4B46-8C6B-977B5DAC576F}|StoreBack\\StoreBack.csproj|solutionrelative:storeback\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,133 +58,114 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20250519170935_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Migrations\\20250519170935_InitialCreate.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Migrations\\20250519170935_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Migrations\\20250519170935_InitialCreate.cs",
-              "RelativeToolTip": "StoreBack\\Migrations\\20250519170935_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T17:09:36.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\appsettings.json",
-              "RelativeDocumentMoniker": "StoreBack\\appsettings.json",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\appsettings.json",
-              "RelativeToolTip": "StoreBack\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-19T16:20:41.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "StoreBack\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAuwHoAAAABAAAAAAAAAA==",
+              "Title": "PingController.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PingController.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
+              "RelativeToolTip": "Controllers\\PingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:31:41.741Z",
+              "WhenOpened": "2025-05-20T19:32:03.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "StoreBack\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAYwEsAAAABAAAAAAAAAA==",
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-20T18:01:34.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:32:01.166Z",
+              "WhenOpened": "2025-05-20T09:08:18.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:08:07.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:07:54.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\UserController.cs*",
+              "RelativeToolTip": "Controllers\\UserController.cs*",
+              "ViewState": "AgIAANEAAAAAAAAAAAAkwOQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:07:42.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Program.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Program.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Program.cs",
-              "RelativeToolTip": "StoreBack\\Program.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAAwF4AAAAKAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAYwJAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:37:31.261Z",
+              "WhenOpened": "2025-05-20T09:07:32.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "StoreBack\\Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAgwHAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:53:44.711Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:04:40.134Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "StoreBack\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:32:31.832Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "StoreBack\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Models\\Product.cs",
-              "RelativeToolTip": "StoreBack\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T16:33:12.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "StoreBack\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\Properties\\launchSettings.json",
-              "RelativeToolTip": "StoreBack\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-19T16:30:52.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "StoreBack\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\StoreBack\\appsettings.Development.json",
-              "RelativeToolTip": "StoreBack\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-19T16:20:59.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:04:19.397Z"
             }
           ]
         }

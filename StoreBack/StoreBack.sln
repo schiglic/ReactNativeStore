@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreBack", "StoreBack\StoreBack.csproj", "{09253389-44CC-4B46-8C6B-977B5DAC576F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreBack", "StoreBack.csproj", "{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09253389-44CC-4B46-8C6B-977B5DAC576F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09253389-44CC-4B46-8C6B-977B5DAC576F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09253389-44CC-4B46-8C6B-977B5DAC576F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09253389-44CC-4B46-8C6B-977B5DAC576F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
