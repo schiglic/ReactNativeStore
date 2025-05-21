@@ -42,6 +42,7 @@ api.interceptors.response.use(
 
 interface User {
     name: string;
+    profilePicture?: string;
 }
 
 interface Product {
@@ -63,7 +64,7 @@ const App: React.FC = () => {
                 const storedToken = await AsyncStorage.getItem('jwt_token');
                 if (storedToken) {
                     setToken(storedToken);
-                    api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`; // Оновлюємо заголовок
+                    api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
                     setPage('products');
                 }
             } catch (error) {
@@ -108,10 +109,6 @@ const App: React.FC = () => {
             });
             if (!result.canceled) {
                 const base64Data = result.assets[0].base64 || null;
-                if (base64Data && base64Data.length > 100000) {
-                    Alert.alert('Помилка', 'Зображення занадто велике. Оберіть фото меншого розміру.');
-                    return;
-                }
                 setPhoto(base64Data);
                 console.log('Photo selected:', base64Data ? `Base64 length: ${base64Data.length}` : 'No base64 data');
             }
@@ -157,8 +154,8 @@ const App: React.FC = () => {
                 const { token } = loginResponse.data;
                 await AsyncStorage.setItem('jwt_token', token);
                 setToken(token);
-                api.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Оновлюємо заголовок
-                setUser({ name });
+                api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                setUser({ name, profilePicture: photo }); // Зберігаємо ім'я та фото користувача
                 setPage('products');
             } catch (error) {
                 const axiosError = error as AxiosError;
@@ -231,8 +228,9 @@ const App: React.FC = () => {
                 const { token } = response.data;
                 await AsyncStorage.setItem('jwt_token', token);
                 setToken(token);
-                api.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Оновлюємо заголовок
-                setUser({ name });
+                api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                const userResponse = await api.get('/user/profile'); // Отримання профілю користувача
+                setUser({ name, profilePicture: userResponse.data.profilePicture });
                 setPage('products');
                 Alert.alert('Успіх', 'Вхід успішний!');
             } catch (error) {
@@ -301,10 +299,6 @@ const App: React.FC = () => {
             });
             if (!result.canceled) {
                 const base64Data = result.assets[0].base64 || null;
-                if (base64Data && base64Data.length > 100000) {
-                    Alert.alert('Помилка', 'Зображення товару занадто велике. Оберіть фото меншого розміру.');
-                    return;
-                }
                 setProductImage(base64Data);
                 console.log('Product photo selected:', base64Data ? `Base64 length: ${base64Data.length}` : 'No base64 data');
             }
@@ -333,7 +327,7 @@ const App: React.FC = () => {
                     });
                 }
                 await api.post('/product', formData);
-                await fetchProducts(); // Оновлюємо список продуктів
+                await fetchProducts();
                 setProductName('');
                 setDescription('');
                 setPrice('');
@@ -348,7 +342,13 @@ const App: React.FC = () => {
 
         const renderProduct = ({ item }: { item: Product }) => (
             <View style={styles.productItem}>
-                {item.image && <Image source={{ uri: `http://192.168.1.2:5259/${item.image}` }} style={styles.productImage} />}
+                {item.image && (
+                    <Image
+                        source={{ uri: `http://192.168.1.2:5259/${item.image}` }}
+                        style={styles.productImage}
+                        onError={(e) => console.log('Image load error:', e.nativeEvent.error)}
+                    />
+                )}
                 <Text style={styles.productText}>Назва: {item.name}</Text>
                 <Text style={styles.productText}>Опис: {item.description}</Text>
                 <Text style={styles.productText}>Ціна: ${item.price}</Text>
@@ -356,8 +356,15 @@ const App: React.FC = () => {
         );
 
         return (
-            <ScrollView contentContainerStyle={styles.container}>
-                <Text style={styles.title}>Товари для {user?.name}</Text>
+            <View style={styles.container}>
+                <Text style={styles.title}>Профіль: {user?.name}</Text>
+                {user?.profilePicture && (
+                    <Image
+                        source={{ uri: `http://192.168.1.2:5259/${user.profilePicture}` }}
+                        style={styles.profileImage}
+                        onError={(e) => console.log('Profile image load error:', e.nativeEvent.error)}
+                    />
+                )}
                 <TextInput
                     style={styles.input}
                     placeholder="Назва товару"
@@ -393,7 +400,7 @@ const App: React.FC = () => {
                             await api.post('/user/logout');
                             await AsyncStorage.removeItem('jwt_token');
                             setToken(null);
-                            api.defaults.headers.common['Authorization'] = ''; // Очищаємо заголовок
+                            api.defaults.headers.common['Authorization'] = '';
                             setUser(null);
                             setPage('login');
                         } catch (error) {
@@ -401,7 +408,7 @@ const App: React.FC = () => {
                         }
                     }}
                 />
-            </ScrollView>
+            </View>
         );
     };
 
@@ -416,7 +423,7 @@ const App: React.FC = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flexGrow: 1,
+        flex: 1,
         padding: 20,
         backgroundColor: '#fff',
     },
@@ -438,6 +445,13 @@ const styles = StyleSheet.create({
         height: 100,
         marginVertical: 10,
         alignSelf: 'center',
+    },
+    profileImage: {
+        width: 100,
+        height: 100,
+        marginVertical: 10,
+        alignSelf: 'center',
+        borderRadius: 50,
     },
     productList: {
         marginTop: 20,

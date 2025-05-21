@@ -103,7 +103,20 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseStaticFiles(); // Для доступу до зображень
+app.UseStaticFiles(); // Основна статична доставка (за замовчуванням з wwwroot)
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "images")),
+    RequestPath = "/images"
+});
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "profilePictures")),
+    RequestPath = "/profilePictures"
+});
+
 app.UseHttpsRedirection();
 app.UseCors("AllowAll"); // Додаємо CORS перед автентифікацією
 app.UseAuthentication();

@@ -161,6 +161,16 @@
   },
   {
     "ContainingType": "StoreBack.Controllers.UserController",
+    "Method": "GetProfile",
+    "RelativePath": "api/User/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StoreBack.Controllers.UserController",
     "Method": "EditProfile",
     "RelativePath": "api/User/profile",
     "HttpMethod": "PUT",

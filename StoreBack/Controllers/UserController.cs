@@ -62,10 +62,9 @@ namespace StoreBack.Controllers
             {
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
-                UserName = model.UserName // Встановлюємо UserName для ApplicationUser
+                UserName = model.UserName
             };
 
-            // Синхронізація з базовим IdentityUser
             ((IdentityUser)user).UserName = model.UserName;
             user.NormalizedUserName = model.UserName.ToUpper();
 
@@ -102,7 +101,6 @@ namespace StoreBack.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                // Дебаг: Перевіряємо після створення
                 var createdUser = await _userManager.FindByNameAsync(model.UserName);
                 Console.WriteLine($"User created. UserName={createdUser?.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)createdUser)?.UserName ?? "null"}, NormalizedUserName={createdUser?.NormalizedUserName ?? "null"}, PasswordHash={createdUser?.PasswordHash ?? "null"}");
 
@@ -148,7 +146,6 @@ namespace StoreBack.Controllers
                     return Unauthorized(new { error = "User not found" });
                 }
 
-                // Синхронізуємо BaseIdentityUserName перед входом
                 if (string.IsNullOrEmpty(((IdentityUser)user).UserName))
                 {
                     ((IdentityUser)user).UserName = user.UserName;
@@ -160,7 +157,6 @@ namespace StoreBack.Controllers
                     }
                     Console.WriteLine("BaseIdentityUserName was null, updated to: " + user.UserName);
 
-                    // Оновлюємо об'єкт користувача після оновлення
                     user = await _userManager.FindByNameAsync(model.UserName);
                 }
 
@@ -181,6 +177,18 @@ namespace StoreBack.Controllers
                 Console.WriteLine($"Login error: {ex.Message}\nStackTrace: {ex.StackTrace}");
                 return StatusCode(500, new { error = "Internal server error", details = ex.Message });
             }
+        }
+
+        [HttpGet("profile")]
+        [Authorize]
+        public async Task<IActionResult> GetProfile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+            return Ok(new { user.UserName, user.ProfilePicture });
         }
 
         public class EditProfileModel
@@ -279,6 +287,13 @@ namespace StoreBack.Controllers
 
         private string GenerateJwtToken(ApplicationUser user)
         {
+            var key = _configuration["Jwt:Key"];
+            if (string.IsNullOrEmpty(key) || Encoding.UTF8.GetBytes(key).Length < 32)
+            {
+                Console.WriteLine("JWT Key is invalid or too short. It must be at least 32 bytes. Current length: " + Encoding.UTF8.GetBytes(key).Length);
+                throw new InvalidOperationException("JWT Key is invalid or too short. Please update appsettings.json with a key of at least 32 bytes.");
+            }
+
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id),
@@ -286,8 +301,8 @@ namespace StoreBack.Controllers
                 new Claim(ClaimTypes.Name, user.UserName)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var creds = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
