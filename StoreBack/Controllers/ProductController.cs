@@ -162,10 +162,12 @@ namespace StoreBack.Controllers
                 return Forbid();
             }
 
-            product.Name = model.Name;
-            product.Price = model.Price;
-            product.Description = model.Description;
+            // Оновлюємо поля
+            product.Name = model.Name ?? product.Name;
+            product.Price = model.Price != 0 ? model.Price : product.Price;
+            product.Description = model.Description ?? product.Description;
 
+            // Обробка нового зображення, якщо надано
             if (!string.IsNullOrEmpty(model.ImageBase64))
             {
                 try
@@ -173,6 +175,17 @@ namespace StoreBack.Controllers
                     var imagesPath = Path.Combine(_environment.ContentRootPath, "images");
                     if (!Directory.Exists(imagesPath))
                         Directory.CreateDirectory(imagesPath);
+
+                    // Видаляємо старе зображення, якщо воно існує
+                    if (!string.IsNullOrEmpty(product.Image))
+                    {
+                        var oldImagePath = Path.Combine(_environment.ContentRootPath, product.Image);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                            Console.WriteLine($"Old image deleted: {oldImagePath}");
+                        }
+                    }
 
                     var fileName = Guid.NewGuid().ToString() + ".jpg";
                     var filePath = Path.Combine(imagesPath, fileName);
@@ -217,6 +230,17 @@ namespace StoreBack.Controllers
             {
                 Console.WriteLine("User not authorized to delete this product");
                 return Forbid();
+            }
+
+            // Видаляємо зображення перед видаленням продукту
+            if (!string.IsNullOrEmpty(product.Image))
+            {
+                var imagePath = Path.Combine(_environment.ContentRootPath, product.Image);
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                    Console.WriteLine($"Image deleted: {imagePath}");
+                }
             }
 
             _context.Products.Remove(product);

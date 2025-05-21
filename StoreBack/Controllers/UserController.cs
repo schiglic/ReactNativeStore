@@ -19,13 +19,20 @@ namespace StoreBack.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _environment;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IWebHostEnvironment environment)
+        public UserController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            IConfiguration configuration,
+            IWebHostEnvironment environment,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
             _environment = environment;
+            _roleManager = roleManager;
         }
 
         public class RegisterModel
@@ -60,13 +67,14 @@ namespace StoreBack.Controllers
 
             var user = new ApplicationUser
             {
+                UserName = model.UserName,
+                NormalizedUserName = model.UserName.ToUpper(),
                 Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                UserName = model.UserName
+                PhoneNumber = model.PhoneNumber
             };
 
+            // Синхронізуємо базове поле IdentityUser.UserName
             ((IdentityUser)user).UserName = model.UserName;
-            user.NormalizedUserName = model.UserName.ToUpper();
 
             if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
@@ -97,20 +105,32 @@ namespace StoreBack.Controllers
                 return BadRequest(new { error = "Profile picture is required" });
             }
 
-            Console.WriteLine($"Creating user with UserName={user.UserName}, BaseIdentityUserName={((IdentityUser)user).UserName}, NormalizedUserName={user.NormalizedUserName}, PhoneNumber={user.PhoneNumber}, Email={user.Email}");
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
+            Console.WriteLine($"Creating user with UserName={user.UserName}, NormalizedUserName={user.NormalizedUserName}, PhoneNumber={user.PhoneNumber}, Email={user.Email}");
+            var createResult = await _userManager.CreateAsync(user, model.Password);
+            if (createResult.Succeeded)
             {
                 var createdUser = await _userManager.FindByNameAsync(model.UserName);
-                Console.WriteLine($"User created. UserName={createdUser?.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)createdUser)?.UserName ?? "null"}, NormalizedUserName={createdUser?.NormalizedUserName ?? "null"}, PasswordHash={createdUser?.PasswordHash ?? "null"}");
+                Console.WriteLine($"User created. UserName={createdUser?.UserName ?? "null"}, NormalizedUserName={createdUser?.NormalizedUserName ?? "null"}, PasswordHash={createdUser?.PasswordHash ?? "null"}");
 
-                await _signInManager.SignInAsync(user, isPersistent: false);
+                // Присвоєння ролі "User"
+                if (await _roleManager.RoleExistsAsync("User"))
+                {
+                    await _userManager.AddToRoleAsync(createdUser, "User");
+                    Console.WriteLine($"Role 'User' assigned to {createdUser?.UserName}");
+                }
+                else
+                {
+                    Console.WriteLine("Role 'User' does not exist");
+                }
+
+                // Генеруємо токен після реєстрації
+                var token = GenerateJwtToken(createdUser);
                 Console.WriteLine("User registered successfully");
-                return Ok(new { message = "User registered successfully" });
+                return Ok(new { message = "User registered successfully", token });
             }
 
-            Console.WriteLine("Registration failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
-            return BadRequest(new { error = "Registration failed", details = result.Errors.Select(e => e.Description) });
+            Console.WriteLine("Registration failed: " + string.Join(", ", createResult.Errors.Select(e => e.Description)));
+            return BadRequest(new { error = "Registration failed", details = createResult.Errors.Select(e => e.Description) });
         }
 
         public class LoginModel
@@ -146,31 +166,47 @@ namespace StoreBack.Controllers
                     return Unauthorized(new { error = "User not found" });
                 }
 
+                // Перевірка та оновлення UserName, якщо базове поле пусте
                 if (string.IsNullOrEmpty(((IdentityUser)user).UserName))
                 {
-                    ((IdentityUser)user).UserName = user.UserName;
+                    ((IdentityUser)user).UserName = model.UserName;
+                    user.UserName = model.UserName;
                     var updateResult = await _userManager.UpdateAsync(user);
                     if (!updateResult.Succeeded)
                     {
-                        Console.WriteLine("Failed to update BaseIdentityUserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+                        Console.WriteLine("Failed to update UserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
                         return StatusCode(500, new { error = "Failed to update user data" });
                     }
-                    Console.WriteLine("BaseIdentityUserName was null, updated to: " + user.UserName);
-
+                    Console.WriteLine("UserName was null, updated to: " + model.UserName);
                     user = await _userManager.FindByNameAsync(model.UserName);
                 }
 
-                Console.WriteLine($"User found: UserName={user.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)user).UserName ?? "null"}, NormalizedUserName={user.NormalizedUserName ?? "null"}, PasswordHash={user.PasswordHash ?? "null"}");
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
-                if (result.Succeeded)
+                // Перевірка NormalizedUserName
+                if (string.IsNullOrEmpty(user.NormalizedUserName))
                 {
-                    var token = GenerateJwtToken(user);
-                    Console.WriteLine("Login successful");
-                    return Ok(new { token });
+                    user.NormalizedUserName = model.UserName.ToUpper();
+                    var updateResult = await _userManager.UpdateAsync(user);
+                    if (!updateResult.Succeeded)
+                    {
+                        Console.WriteLine("Failed to update NormalizedUserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+                        return StatusCode(500, new { error = "Failed to update user data" });
+                    }
+                    Console.WriteLine("NormalizedUserName was null, updated to: " + user.NormalizedUserName);
                 }
 
-                Console.WriteLine("Login failed: Invalid credentials");
-                return Unauthorized(new { error = "Invalid username or password" });
+                Console.WriteLine($"User found: UserName={user.UserName ?? "null"}, NormalizedUserName={user.NormalizedUserName ?? "null"}, PasswordHash={user.PasswordHash ?? "null"}, Email={user.Email ?? "null"}, PhoneNumber={user.PhoneNumber ?? "null"}");
+
+                // Спроба входу без SignInManager, щоб уникнути помилки Claims
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, model.Password);
+                if (!passwordCheck)
+                {
+                    Console.WriteLine("Invalid credentials");
+                    return Unauthorized(new { error = "Invalid username or password" });
+                }
+
+                var token = GenerateJwtToken(user);
+                Console.WriteLine("Login successful");
+                return Ok(new { token });
             }
             catch (Exception ex)
             {
@@ -188,21 +224,24 @@ namespace StoreBack.Controllers
             {
                 return Unauthorized();
             }
-            return Ok(new { user.UserName, user.ProfilePicture });
+            return Ok(new { user.UserName, user.ProfilePicture, user.PhoneNumber, user.Email });
         }
 
         public class EditProfileModel
         {
-            public string PhoneNumber { get; set; }
-            public string Email { get; set; }
+            public string? PhoneNumber { get; set; }
+            public string? Email { get; set; }
             public string? ProfilePictureBase64 { get; set; }
+            public string? OldPassword { get; set; }
+            public string? NewPassword { get; set; }
         }
 
         [Authorize]
         [HttpPut("profile")]
         public async Task<IActionResult> EditProfile([FromForm] EditProfileModel model)
         {
-            Console.WriteLine($"Edit profile request: PhoneNumber={model.PhoneNumber}, Email={model.Email}, ProfilePictureBase64={(model.ProfilePictureBase64 != null ? $"Length: {model.ProfilePictureBase64.Length}" : "null")}");
+            Console.WriteLine($"Edit profile request: PhoneNumber={model.PhoneNumber}, Email={model.Email}, ProfilePictureBase64={(model.ProfilePictureBase64 != null ? $"Length: {model.ProfilePictureBase64.Length}" : "null")}, OldPassword={(string.IsNullOrEmpty(model.OldPassword) ? "null" : "***")}, NewPassword={(string.IsNullOrEmpty(model.NewPassword) ? "null" : "***")}");
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -210,9 +249,43 @@ namespace StoreBack.Controllers
                 return NotFound(new { error = "User not found" });
             }
 
-            user.PhoneNumber = model.PhoneNumber;
-            user.Email = model.Email;
+            bool isUpdated = false;
 
+            // Оновлення телефону
+            if (!string.IsNullOrEmpty(model.PhoneNumber) && model.PhoneNumber != user.PhoneNumber)
+            {
+                user.PhoneNumber = model.PhoneNumber;
+                isUpdated = true;
+            }
+
+            // Оновлення email
+            if (!string.IsNullOrEmpty(model.Email) && model.Email != user.Email)
+            {
+                user.Email = model.Email;
+                isUpdated = true;
+            }
+
+            // Оновлення пароля
+            if (!string.IsNullOrEmpty(model.OldPassword) && !string.IsNullOrEmpty(model.NewPassword))
+            {
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, model.OldPassword);
+                if (!passwordCheck)
+                {
+                    Console.WriteLine("Old password is incorrect");
+                    return BadRequest(new { error = "Неправильний старий пароль" });
+                }
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var passwordResult = await _userManager.ResetPasswordAsync(user, token, model.NewPassword);
+                if (!passwordResult.Succeeded)
+                {
+                    Console.WriteLine("Password change failed: " + string.Join(", ", passwordResult.Errors.Select(e => e.Description)));
+                    return BadRequest(new { error = "Не вдалося змінити пароль", details = passwordResult.Errors.Select(e => e.Description) });
+                }
+                Console.WriteLine("Password changed successfully");
+                isUpdated = true;
+            }
+
+            // Оновлення аватарки
             if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
                 try
@@ -220,6 +293,17 @@ namespace StoreBack.Controllers
                     var profilePicturesPath = Path.Combine(_environment.ContentRootPath, "profilePictures");
                     if (!Directory.Exists(profilePicturesPath))
                         Directory.CreateDirectory(profilePicturesPath);
+
+                    // Видаляємо стару аватарку, якщо вона існує
+                    if (!string.IsNullOrEmpty(user.ProfilePicture))
+                    {
+                        var oldImagePath = Path.Combine(_environment.ContentRootPath, user.ProfilePicture);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                            Console.WriteLine($"Old profile picture deleted: {oldImagePath}");
+                        }
+                    }
 
                     var fileName = Guid.NewGuid().ToString() + ".jpg";
                     var filePath = Path.Combine(profilePicturesPath, fileName);
@@ -229,6 +313,7 @@ namespace StoreBack.Controllers
 
                     user.ProfilePicture = Path.Combine("profilePictures", fileName);
                     Console.WriteLine($"Profile picture updated to: {user.ProfilePicture}");
+                    isUpdated = true;
                 }
                 catch (Exception ex)
                 {
@@ -236,20 +321,21 @@ namespace StoreBack.Controllers
                     return BadRequest(new { error = "Failed to update profile picture", details = ex.Message });
                 }
             }
-            else if (string.IsNullOrEmpty(user.ProfilePicture))
+
+            if (isUpdated)
             {
-                return BadRequest(new { error = "Profile picture is required" });
+                var updateResult = await _userManager.UpdateAsync(user);
+                if (updateResult.Succeeded)
+                {
+                    Console.WriteLine("Profile updated successfully");
+                    return Ok(new { message = "Profile updated" });
+                }
+
+                Console.WriteLine("Profile update failed: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+                return BadRequest(new { error = "Profile update failed", details = updateResult.Errors.Select(e => e.Description) });
             }
 
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                Console.WriteLine("Profile updated successfully");
-                return Ok(new { message = "Profile updated" });
-            }
-
-            Console.WriteLine("Profile update failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
-            return BadRequest(new { error = "Profile update failed", details = result.Errors.Select(e => e.Description) });
+            return Ok(new { message = "No changes to update" });
         }
 
         [Authorize]
@@ -290,28 +376,48 @@ namespace StoreBack.Controllers
             var key = _configuration["Jwt:Key"];
             if (string.IsNullOrEmpty(key) || Encoding.UTF8.GetBytes(key).Length < 32)
             {
-                Console.WriteLine("JWT Key is invalid or too short. It must be at least 32 bytes. Current length: " + Encoding.UTF8.GetBytes(key).Length);
+                Console.WriteLine("JWT Key is invalid or too short. It must be at least 32 bytes. Current length: " + (Encoding.UTF8.GetBytes(key ?? "").Length));
                 throw new InvalidOperationException("JWT Key is invalid or too short. Please update appsettings.json with a key of at least 32 bytes.");
             }
 
-            var claims = new[]
+            // Перевіряємо, що всі необхідні поля заповнені
+            if (string.IsNullOrEmpty(user.Id))
+            {
+                Console.WriteLine("User Id is null");
+                throw new InvalidOperationException("User Id cannot be null");
+            }
+
+            if (string.IsNullOrEmpty(user.UserName))
+            {
+                Console.WriteLine("UserName is null");
+                throw new InvalidOperationException("UserName cannot be null");
+            }
+
+            // Отримуємо ролі користувача
+            var roles = _userManager.GetRolesAsync(user).Result;
+            var roleClaims = roles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
+
+            var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
+            claims.AddRange(roleClaims);
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var creds = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
+                issuer: _configuration["Jwt:Issuer"] ?? "StoreBack",
+                audience: _configuration["Jwt:Audience"] ?? "StoreFront",
                 claims: claims,
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            Console.WriteLine($"Generated JWT token: {tokenString.Substring(0, 20)}... (length: {tokenString.Length})");
+            return tokenString;
         }
     }
 }

@@ -311,6 +311,12 @@
                   },
                   "ProfilePictureBase64": {
                     "type": "string"
+                  },
+                  "OldPassword": {
+                    "type": "string"
+                  },
+                  "NewPassword": {
+                    "type": "string"
                   }
                 }
               },
@@ -322,6 +328,12 @@
                   "style": "form"
                 },
                 "ProfilePictureBase64": {
+                  "style": "form"
+                },
+                "OldPassword": {
+                  "style": "form"
+                },
+                "NewPassword": {
                   "style": "form"
                 }
               }
