@@ -3,52 +3,92 @@
   "WorkspaceRootPath": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\pingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\profilepictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:profilepictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|c:\\users\\stas\\documents\\projects\\androidapp\\storeback\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DEE65B0B-9A2E-47B0-A4A8-097B9C3AED3A}|StoreBack.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,33 +110,253 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
               "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\Product.cs",
               "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T09:07:54.569Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:08:18.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAI8BAAAAAAAAAADwv6YBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwIIBAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T09:07:42.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAcwBcBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:07:32.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PingController.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PingController.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
+              "RelativeToolTip": "Controllers\\PingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:32:03.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-20T18:01:34.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T09:08:07.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "41d76348-edd8-424a-94a4-3242facdb320.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg",
+              "RelativeToolTip": "profilePictures\\41d76348-edd8-424a-94a4-3242facdb320.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:56.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "391da5b3-d82d-46b8-926f-3d5fa8872002.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg",
+              "RelativeToolTip": "profilePictures\\391da5b3-d82d-46b8-926f-3d5fa8872002.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:54.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg",
+              "RelativeToolTip": "profilePictures\\3300f9d6-26bd-461f-b764-2fde7e4dab00.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:53.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg",
+              "RelativeToolTip": "profilePictures\\ea5529f6-2120-4d01-8dd7-986c23ee7b73.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:35:04.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg",
+              "RelativeToolTip": "profilePictures\\d2a16aba-203c-411e-bb6b-f0eadb7cf309.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:35:02.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "b7075d4b-944d-4f77-b479-235b941e83fe.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg",
+              "RelativeToolTip": "profilePictures\\b7075d4b-944d-4f77-b479-235b941e83fe.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:35:01.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "852bd4eb-daf8-4317-91b7-66959647138b.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg",
+              "RelativeToolTip": "profilePictures\\852bd4eb-daf8-4317-91b7-66959647138b.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:59.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
+              "RelativeToolTip": "profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-20T22:40:42.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "0937ee88-61dc-4649-819a-59a6be5e9625.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg",
+              "RelativeDocumentMoniker": "profilePictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg",
+              "RelativeToolTip": "profilePictures\\0937ee88-61dc-4649-819a-59a6be5e9625.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:51.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
+              "RelativeDocumentMoniker": "images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
+              "RelativeToolTip": "images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:36.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg",
+              "RelativeDocumentMoniker": "images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg",
+              "RelativeToolTip": "images\\7a59ae0c-11a6-4997-9e10-f3604abef7d9.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:34.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
+              "RelativeDocumentMoniker": "images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
+              "RelativeToolTip": "images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T22:34:31.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg",
+              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg",
+              "RelativeDocumentMoniker": "images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg",
+              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg",
+              "RelativeToolTip": "images\\9ed7851d-f08b-456b-8db5-ce2b35c5651a.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-21T19:58:42.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -108,20 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AgIAAOQAAAAAAAAAAADwv+kAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:07:32.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 20,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -129,93 +376,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAHkAAAAAAAAAAADwv40AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:04:40.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:08:07.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
-              "RelativeDocumentMoniker": "images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
-              "RelativeToolTip": "images\\1fb0eeea-1d8b-408d-8ab8-c2c88b7b946b.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-21T14:48:25.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
-              "RelativeDocumentMoniker": "images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
-              "RelativeToolTip": "images\\b2a143a0-b026-4468-94e2-cfb7495edb5d.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-21T14:48:29.467Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PingController.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PingController.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Controllers\\PingController.cs",
-              "RelativeToolTip": "Controllers\\PingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T19:32:03.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:08:18.484Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-20T18:01:34.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
-              "DocumentMoniker": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
-              "RelativeDocumentMoniker": "profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
-              "ToolTip": "C:\\Users\\Stas\\Documents\\Projects\\AndroidApp\\StoreBack\\profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
-              "RelativeToolTip": "profilePictures\\656c2875-fd5c-4d7f-bb31-1fb997c929b9.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-20T22:40:42.66Z"
+              "WhenOpened": "2025-05-20T09:04:40.134Z"
             }
           ]
         }

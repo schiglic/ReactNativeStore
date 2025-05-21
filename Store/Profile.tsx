@@ -48,16 +48,10 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdate, onLogout, setPage }) 
         const isServerUp = await checkServer();
         if (!isServerUp) return;
 
-        const hasChanges = phone !== user.phoneNumber || email !== user.email || oldPassword || newPassword || newProfileImage;
-        if (!hasChanges) {
-            Alert.alert('Попередження', 'Жодних змін не внесено.');
-            return;
-        }
-
         try {
             const formData = new FormData();
-            if (phone && phone !== user.phoneNumber) formData.append('PhoneNumber', phone);
-            if (email && email !== user.email) formData.append('Email', email);
+            formData.append('PhoneNumber', phone || '');
+            formData.append('Email', email || '');
             if (oldPassword && newPassword) {
                 formData.append('OldPassword', oldPassword);
                 formData.append('NewPassword', newPassword);
@@ -65,8 +59,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdate, onLogout, setPage }) 
             if (newProfileImage) formData.append('ProfilePictureBase64', newProfileImage);
 
             console.log('Sending Profile Update FormData:', {
-                PhoneNumber: phone !== user.phoneNumber ? phone : null,
-                Email: email !== user.email ? email : null,
+                PhoneNumber: phone,
+                Email: email,
                 OldPassword: oldPassword ? '***' : null,
                 NewPassword: newPassword ? '***' : null,
                 ProfilePictureBase64: newProfileImage ? `Base64 length: ${newProfileImage.length}` : null,

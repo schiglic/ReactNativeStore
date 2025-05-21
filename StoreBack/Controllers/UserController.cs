@@ -67,14 +67,11 @@ namespace StoreBack.Controllers
 
             var user = new ApplicationUser
             {
-                UserName = model.UserName,
+                UserName = model.UserName, // Використовуємо базове поле IdentityUser.UserName
                 NormalizedUserName = model.UserName.ToUpper(),
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber
             };
-
-            // Синхронізуємо базове поле IdentityUser.UserName
-            ((IdentityUser)user).UserName = model.UserName;
 
             if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
@@ -112,7 +109,6 @@ namespace StoreBack.Controllers
                 var createdUser = await _userManager.FindByNameAsync(model.UserName);
                 Console.WriteLine($"User created. UserName={createdUser?.UserName ?? "null"}, NormalizedUserName={createdUser?.NormalizedUserName ?? "null"}, PasswordHash={createdUser?.PasswordHash ?? "null"}");
 
-                // Присвоєння ролі "User"
                 if (await _roleManager.RoleExistsAsync("User"))
                 {
                     await _userManager.AddToRoleAsync(createdUser, "User");
@@ -123,7 +119,6 @@ namespace StoreBack.Controllers
                     Console.WriteLine("Role 'User' does not exist");
                 }
 
-                // Генеруємо токен після реєстрації
                 var token = GenerateJwtToken(createdUser);
                 Console.WriteLine("User registered successfully");
                 return Ok(new { message = "User registered successfully", token });
@@ -166,22 +161,6 @@ namespace StoreBack.Controllers
                     return Unauthorized(new { error = "User not found" });
                 }
 
-                // Перевірка та оновлення UserName, якщо базове поле пусте
-                if (string.IsNullOrEmpty(((IdentityUser)user).UserName))
-                {
-                    ((IdentityUser)user).UserName = model.UserName;
-                    user.UserName = model.UserName;
-                    var updateResult = await _userManager.UpdateAsync(user);
-                    if (!updateResult.Succeeded)
-                    {
-                        Console.WriteLine("Failed to update UserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
-                        return StatusCode(500, new { error = "Failed to update user data" });
-                    }
-                    Console.WriteLine("UserName was null, updated to: " + model.UserName);
-                    user = await _userManager.FindByNameAsync(model.UserName);
-                }
-
-                // Перевірка NormalizedUserName
                 if (string.IsNullOrEmpty(user.NormalizedUserName))
                 {
                     user.NormalizedUserName = model.UserName.ToUpper();
@@ -196,7 +175,6 @@ namespace StoreBack.Controllers
 
                 Console.WriteLine($"User found: UserName={user.UserName ?? "null"}, NormalizedUserName={user.NormalizedUserName ?? "null"}, PasswordHash={user.PasswordHash ?? "null"}, Email={user.Email ?? "null"}, PhoneNumber={user.PhoneNumber ?? "null"}");
 
-                // Спроба входу без SignInManager, щоб уникнути помилки Claims
                 var passwordCheck = await _userManager.CheckPasswordAsync(user, model.Password);
                 if (!passwordCheck)
                 {
@@ -251,21 +229,18 @@ namespace StoreBack.Controllers
 
             bool isUpdated = false;
 
-            // Оновлення телефону
             if (!string.IsNullOrEmpty(model.PhoneNumber) && model.PhoneNumber != user.PhoneNumber)
             {
                 user.PhoneNumber = model.PhoneNumber;
                 isUpdated = true;
             }
 
-            // Оновлення email
             if (!string.IsNullOrEmpty(model.Email) && model.Email != user.Email)
             {
                 user.Email = model.Email;
                 isUpdated = true;
             }
 
-            // Оновлення пароля
             if (!string.IsNullOrEmpty(model.OldPassword) && !string.IsNullOrEmpty(model.NewPassword))
             {
                 var passwordCheck = await _userManager.CheckPasswordAsync(user, model.OldPassword);
@@ -285,7 +260,6 @@ namespace StoreBack.Controllers
                 isUpdated = true;
             }
 
-            // Оновлення аватарки
             if (!string.IsNullOrEmpty(model.ProfilePictureBase64))
             {
                 try
@@ -294,7 +268,6 @@ namespace StoreBack.Controllers
                     if (!Directory.Exists(profilePicturesPath))
                         Directory.CreateDirectory(profilePicturesPath);
 
-                    // Видаляємо стару аватарку, якщо вона існує
                     if (!string.IsNullOrEmpty(user.ProfilePicture))
                     {
                         var oldImagePath = Path.Combine(_environment.ContentRootPath, user.ProfilePicture);
@@ -380,7 +353,6 @@ namespace StoreBack.Controllers
                 throw new InvalidOperationException("JWT Key is invalid or too short. Please update appsettings.json with a key of at least 32 bytes.");
             }
 
-            // Перевіряємо, що всі необхідні поля заповнені
             if (string.IsNullOrEmpty(user.Id))
             {
                 Console.WriteLine("User Id is null");
@@ -393,7 +365,6 @@ namespace StoreBack.Controllers
                 throw new InvalidOperationException("UserName cannot be null");
             }
 
-            // Отримуємо ролі користувача
             var roles = _userManager.GetRolesAsync(user).Result;
             var roleClaims = roles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
 
