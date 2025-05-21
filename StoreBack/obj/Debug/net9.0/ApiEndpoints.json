@@ -28,8 +28,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Image",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "ImageBase64",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -90,8 +90,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Image",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "ImageBase64",
+        "Type": "System.String",
         "IsRequired": false
       },
       {

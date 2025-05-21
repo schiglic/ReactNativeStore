@@ -35,9 +35,8 @@
                     "type": "number",
                     "format": "double"
                   },
-                  "Image": {
-                    "type": "string",
-                    "format": "binary"
+                  "ImageBase64": {
+                    "type": "string"
                   },
                   "Description": {
                     "type": "string"
@@ -51,7 +50,7 @@
                 "Price": {
                   "style": "form"
                 },
-                "Image": {
+                "ImageBase64": {
                   "style": "form"
                 },
                 "Description": {
@@ -128,9 +127,8 @@
                     "type": "number",
                     "format": "double"
                   },
-                  "Image": {
-                    "type": "string",
-                    "format": "binary"
+                  "ImageBase64": {
+                    "type": "string"
                   },
                   "Description": {
                     "type": "string"
@@ -144,7 +142,7 @@
                 "Price": {
                   "style": "form"
                 },
-                "Image": {
+                "ImageBase64": {
                   "style": "form"
                 },
                 "Description": {

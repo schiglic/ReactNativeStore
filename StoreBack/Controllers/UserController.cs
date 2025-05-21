@@ -65,7 +65,7 @@ namespace StoreBack.Controllers
                 UserName = model.UserName // Встановлюємо UserName для ApplicationUser
             };
 
-            // Встановлюємо UserName і NormalizedUserName для базового класу IdentityUser
+            // Синхронізація з базовим IdentityUser
             ((IdentityUser)user).UserName = model.UserName;
             user.NormalizedUserName = model.UserName.ToUpper();
 
@@ -141,7 +141,6 @@ namespace StoreBack.Controllers
                     return BadRequest(new { error = "Username and password are required" });
                 }
 
-                // Переконаємося, що NormalizedUserName встановлено
                 var user = await _userManager.FindByNameAsync(model.UserName);
                 if (user == null)
                 {
@@ -149,17 +148,20 @@ namespace StoreBack.Controllers
                     return Unauthorized(new { error = "User not found" });
                 }
 
-                // Перевіряємо і виправляємо NormalizedUserName, якщо воно null
-                if (string.IsNullOrEmpty(user.NormalizedUserName))
+                // Синхронізуємо BaseIdentityUserName перед входом
+                if (string.IsNullOrEmpty(((IdentityUser)user).UserName))
                 {
-                    user.NormalizedUserName = user.UserName.ToUpper();
+                    ((IdentityUser)user).UserName = user.UserName;
                     var updateResult = await _userManager.UpdateAsync(user);
                     if (!updateResult.Succeeded)
                     {
-                        Console.WriteLine("Failed to update NormalizedUserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
+                        Console.WriteLine("Failed to update BaseIdentityUserName: " + string.Join(", ", updateResult.Errors.Select(e => e.Description)));
                         return StatusCode(500, new { error = "Failed to update user data" });
                     }
-                    Console.WriteLine("NormalizedUserName was null, updated to: " + user.NormalizedUserName);
+                    Console.WriteLine("BaseIdentityUserName was null, updated to: " + user.UserName);
+
+                    // Оновлюємо об'єкт користувача після оновлення
+                    user = await _userManager.FindByNameAsync(model.UserName);
                 }
 
                 Console.WriteLine($"User found: UserName={user.UserName ?? "null"}, BaseIdentityUserName={((IdentityUser)user).UserName ?? "null"}, NormalizedUserName={user.NormalizedUserName ?? "null"}, PasswordHash={user.PasswordHash ?? "null"}");
